@@ -17,20 +17,30 @@ const API_KEY = 'AIzaSyACBVXkfY8BQAqM2S-nzpwnrYt73C_zAvw';
 // دالة تحميل البيانات من Google Sheets
 async function loadTeamData() {
     try {
-        console.log('جاري تحميل البيانات...'); // للتأكد من عمل الدالة
+        console.log('جاري تحميل البيانات...');
         
         // تحميل بيانات النقاط من الورقة الأولى (Sheet1)
         const pointsResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1?key=${API_KEY}`);
+        
+        if (!pointsResponse.ok) {
+            throw new Error(`خطأ في تحميل النقاط: ${pointsResponse.status}`);
+        }
+        
         const pointsData = await pointsResponse.json();
-        console.log('بيانات النقاط:', pointsData); // لرؤية البيانات في console
+        console.log('بيانات النقاط:', pointsData);
         
         // تحميل بيانات التفاصيل من الورقة الثانية (تفاصيل)
         const detailsResponse = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/تفاصيل?key=${API_KEY}`);
-        const detailsData = await detailsResponse.json();
-        console.log('بيانات التفاصيل:', detailsData); // لرؤية البيانات في console
+        
+        if (!detailsResponse.ok) {
+            console.warn('خطأ في تحميل التفاصيل، قد تكون الورقة الثانية غير موجودة');
+        }
+        
+        const detailsData = detailsResponse.ok ? await detailsResponse.json() : { values: [] };
+        console.log('بيانات التفاصيل:', detailsData);
         
         // تحديث البطاقات بالبيانات
-        updateCards(pointsData.values, detailsData.values);
+        updateCards(pointsData.values, detailsData.values || []);
         
     } catch (error) {
         console.error('خطأ في تحميل البيانات:', error);
@@ -45,7 +55,7 @@ function updateCards(pointsRows, detailsRows) {
     }
     
     const cards = document.querySelectorAll('.member-card');
-    console.log('عدد البطاقات:', cards.length); // للتأكد من وجود البطاقات
+    console.log('عدد البطاقات:', cards.length);
     
     // إنشاء قاموس للتفاصيل
     let memberDetails = {};
@@ -57,7 +67,7 @@ function updateCards(pointsRows, detailsRows) {
             }
         }
     }
-    console.log('قاموس التفاصيل:', memberDetails); // للتأكد من قراءة التفاصيل
+    console.log('قاموس التفاصيل:', memberDetails);
     
     // تخزين التفاصيل للاستخدام في النافذة المنبثقة
     window.memberDetails = memberDetails;
@@ -70,11 +80,10 @@ function updateCards(pointsRows, detailsRows) {
         const memberName = row[0] ? row[0].trim() : '';
         if (!memberName) continue;
         
-        // البحث عن البطاقة المناسبة (أو استخدام الترتيب)
-        const cardIndex = i - 1;
-        if (cardIndex >= cards.length) continue;
+        // البحث عن البطاقة المناسبة
+        if (i-1 >= cards.length) continue;
         
-        const card = cards[cardIndex];
+        const card = cards[i-1];
         if (!card) continue;
         
         // تحديث الاسم
