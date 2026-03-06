@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Beiruti:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -326,7 +325,7 @@ body {
     font-family: 'Beiruti', sans-serif;
 }
 
-/* هنا التعديل الوحيد */
+/* النقاط الزرقاء المتوهجة - هذا التعديل الوحيد */
 .blue-value {
     color: #0066ff;
     text-shadow: 0 0 20px #0066ff, 0 0 40px #00a8ff;
@@ -481,7 +480,7 @@ body {
     color: white;
 }
 
-/* هنا التعديل الثاني */
+/* المجموع الأزرق المتوهج - هذا التعديل الثاني */
 .blue-total {
     color: #0066ff !important;
     font-size: 1.5rem;
