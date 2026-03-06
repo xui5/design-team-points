@@ -17,7 +17,7 @@ body {
     position: relative;
 }
 
-/* صورة الخلفية الكبيرة */
+‎/* صورة الخلفية الكبيرة */
 .large-bg-image {
     position: fixed;
     top: 0;
@@ -46,7 +46,7 @@ body {
     }
 }
 
-/* العناصر المضيئة */
+‎/* العناصر المضيئة */
 .floating-elements {
     position: fixed;
     width: 100%;
@@ -125,7 +125,7 @@ body {
     }
 }
 
-/* شاشة التحميل */
+‎/* شاشة التحميل */
 .loader-wrapper {
     position: fixed;
     top: 0;
@@ -150,7 +150,7 @@ body {
     height: auto;
 }
 
-/* المحتوى الرئيسي */
+‎/* المحتوى الرئيسي */
 .content {
     position: relative;
     z-index: 2;
@@ -159,7 +159,7 @@ body {
     padding: 20px 40px;
 }
 
-/* الهيدر */
+‎/* الهيدر */
 .glass-header {
     background: rgba(10, 20, 30, 0.3);
     backdrop-filter: blur(10px);
@@ -204,7 +204,7 @@ body {
     height: 100px;
 }
 
-/* العنوان الرئيسي */
+‎/* العنوان الرئيسي */
 .hero-section {
     text-align: center;
     margin-bottom: 60px;
@@ -234,7 +234,7 @@ body {
     font-family: 'Beiruti', sans-serif;
 }
 
-/* التصميم الزجاجي العام */
+‎/* التصميم الزجاجي العام */
 .glass-card {
     background: rgba(20, 30, 45, 0.3);
     backdrop-filter: blur(10px);
@@ -258,7 +258,7 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 255, 255, 0.3);
 }
 
-/* المربع الرئيسي */
+‎/* المربع الرئيسي */
 .main-card {
     padding: 40px;
     margin-bottom: 80px;
@@ -286,7 +286,7 @@ body {
     background: linear-gradient(90deg, transparent, #fff, transparent);
 }
 
-/* شكل البنود */
+‎/* شكل البنود */
 .points-items {
     display: flex;
     flex-direction: column;
@@ -326,13 +326,12 @@ body {
     font-family: 'Beiruti', sans-serif;
 }
 
-/* النقاط الزرقاء المتوهجة */
 .blue-value {
-    color: #0066ff;
-    text-shadow: 0 0 20px #0066ff, 0 0 40px #00a8ff;
+    color: #1E3A5F;
+    text-shadow: 0 0 20px rgba(30, 58, 95, 0.5);
 }
 
-/* عنوان الفريق */
+‎/* عنوان الفريق */
 .team-title {
     font-size: 2.5rem;
     text-align: center;
@@ -347,7 +346,7 @@ body {
     font-family: 'Beiruti', sans-serif;
 }
 
-/* شبكة البطاقات */
+‎/* شبكة البطاقات */
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -355,7 +354,7 @@ body {
     margin-bottom: 80px;
 }
 
-/* بطاقة العضو */
+‎/* بطاقة العضو */
 .member-card {
     padding: 30px 20px;
     text-align: center;
@@ -380,7 +379,7 @@ body {
 .member-card:nth-child(13) { animation-delay: 0.7s; }
 .member-card:nth-child(14) { animation-delay: 0.75s; }
 
-/* حاوية الأفاتار */
+‎/* حاوية الأفاتار */
 .avatar-container {
     margin-bottom: 20px;
     position: relative;
@@ -402,12 +401,12 @@ body {
     z-index: 2;
 }
 
-/* أفاتار الرجال */
+‎/* أفاتار الرجال */
 .avatar.male {
     background: linear-gradient(135deg, #e0e0e0, #b0b0b0);
 }
 
-/* تنسيق الأيقونات */
+‎/* تنسيق الأيقونات */
 .avatar i {
     font-size: 3rem;
     color: white;
@@ -424,27 +423,25 @@ body {
 
 .member-name {
     font-size: 1.4rem;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     color: #fff;
+    position: relative;
+    display: inline-block;
     font-family: 'Beiruti', sans-serif;
-    display: block;
-    text-align: center;
-    width: 100%;
 }
 
-.member-role {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 15px;
-    font-family: 'Beiruti', sans-serif;
-    display: block;
-    text-align: center;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+.member-name::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
 }
 
-/* تفاصيل النقاط */
+‎/* تفاصيل النقاط */
 .points-details {
     margin: 20px 0;
     text-align: right;
@@ -481,19 +478,18 @@ body {
     color: white;
 }
 
-/* المجموع الأزرق المتوهج */
 .blue-total {
-    color: #0066ff !important;
+    color: #1E3A5F !important;
     font-size: 1.5rem;
     font-weight: bold;
-    text-shadow: 0 0 15px #0066ff, 0 0 30px #00a8ff;
+    text-shadow: 0 0 15px rgba(30, 58, 95, 0.7);
     background: rgba(255, 255, 255, 0.1);
     padding: 5px 20px;
     border-radius: 50px;
-    border: 1px solid #0066ff;
+    border: 1px solid rgba(30, 58, 95, 0.5);
 }
 
-/* زر التفاصيل */
+‎/* زر التفاصيل */
 .details-btn {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -516,7 +512,7 @@ body {
     border-color: rgba(255, 255, 255, 0.5);
 }
 
-/* الفوتر */
+‎/* الفوتر */
 .glass-footer {
     background: rgba(10, 20, 30, 0.4);
     backdrop-filter: blur(10px);
@@ -577,7 +573,7 @@ body {
     font-size: 2.5rem;
 }
 
-/* نافذة منبثقة */
+‎/* نافذة منبثقة */
 .popup {
     display: none;
     position: fixed;
@@ -626,11 +622,10 @@ body {
 
 #popup-title {
     font-size: 2rem;
-    color: #ffffff;
+    color: #FFD700;
     margin-bottom: 20px;
     text-align: center;
     font-family: 'Beiruti', sans-serif;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .popup-body {
@@ -641,7 +636,7 @@ body {
     white-space: pre-line;
 }
 
-/* أنيميشن */
+‎/* أنيميشن */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -649,7 +644,7 @@ body {
     }
 }
 
-/* تحسينات للشاشات الصغيرة */
+‎/* تحسينات للشاشات الصغيرة */
 @media (max-width: 768px) {
     .content {
         padding: 15px;
@@ -707,7 +702,7 @@ body {
     }
 }
 
-/* تخصيص شريط التمرير */
+‎/* تخصيص شريط التمرير */
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -717,15 +712,24 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #0066ff, #00a8ff);
+    background: linear-gradient(135deg, #667eea, #764ba2);
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #00a8ff, #0066ff);
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+‎/* اسم العضو - زي القديم تماماً */
+.member-name {
+    font-size: 1.4rem;
+    margin-bottom: 5px;  /* قللت المسافة عشان المنصب يلزق */
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    font-family: 'Beiruti', sans-serif;
 }
 
-/* الخط الأبيض المتوهج تحت الاسم */
+‎/* الخط الأبيض المتوهج تحت الاسم - زي القديم */
 .member-name::after {
     content: '';
     position: absolute;
@@ -738,7 +742,54 @@ body {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* إلغاء أي خط قديم */
+‎/* اسم العضو */
+.member-name {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #fff;
+    font-family: 'Beiruti', sans-serif;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+‎/* المنصب - تحت الاسم (بدون إطار) */
+.member-role {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;  /* مسافة قبل الخط */
+    font-family: 'Beiruti', sans-serif;
+    display: block;
+    text-align: center;
+‎    /* تم إزالة background, border, padding, backdrop-filter */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+‎/* الخط الأبيض المتوهج تحت المنصب */
+.member-card .glass-card::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    margin: 0 auto 20px auto;
+}
+
+‎/* إلغاء أي خط قديم */
+.member-name::after,
 .member-name::before {
     display: none;
+}
+
+‎/* لون الاسم في النافذة المنبثقة - أبيض */
+#popup-title {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Beiruti', sans-serif;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
