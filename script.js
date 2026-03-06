@@ -21,7 +21,8 @@ const memberDetails = {
     •	كتيب النشرة ملف (6)
     •	تعديلات Enigma (4 تعديلات × 0.5 = 2)
     •	تعديل إعلان INE (0.5)
-    •	اقتراح تحسين بوستات التسجيل (0.5)`,
+    •	اقتراح تحسين بوستات القبول (0.5)
+    `,
     
     'معاذ': `معاذ: 8 نقاط
     •	الأعمال:
@@ -147,3 +148,4 @@ document.addEventListener('mousemove', function(e) {
         element.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+
