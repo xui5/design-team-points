@@ -104,7 +104,7 @@ window.addEventListener('click', function(e) {
     }
 });
 
-// تأثير التمرير - البطاقة الظاهرة تبرز
+// تأثير التمرير - البطاقة الظاهرة يظهر خلفها ظل أبيض خفيف
 window.addEventListener('scroll', function() {
     const cards = document.querySelectorAll('.member-card');
     
@@ -112,13 +112,11 @@ window.addEventListener('scroll', function() {
         const rect = card.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         
-        // البطاقة تعتبر ظاهرة إذا كانت في منتصف الشاشة تقريباً
-        const isVisible = rect.top < windowHeight - 100 && rect.bottom > 100;
+        // البطاقة تعتبر ظاهرة إذا كانت في منتصف الشاشة
+        const isVisible = rect.top < windowHeight - 150 && rect.bottom > 150;
         
         if (isVisible) {
             card.classList.add('highlight');
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
         } else {
             card.classList.remove('highlight');
         }
@@ -159,5 +157,5 @@ document.addEventListener('mousemove', function(e) {
 window.addEventListener('load', function() {
     setTimeout(() => {
         window.dispatchEvent(new Event('scroll'));
-    }, 100);
+    }, 200);
 });
