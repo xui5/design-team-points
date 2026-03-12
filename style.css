@@ -1,5 +1,4 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Beiruti:wght@200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -194,16 +193,65 @@ body::after {
     padding: 20px 40px;
 }
 
-/* الهيدر - فاضي بدون شعار */
+/* الهيدر مع الشعار */
 .glass-header {
     background: rgba(3, 6, 20, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 57, 166, 0.3);
     border-radius: 20px;
-    padding: 10px;
+    padding: 15px 30px;
     margin-bottom: 40px;
-    min-height: 20px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(217, 4, 43, 0.2),
+        inset 0 0 30px rgba(0, 57, 166, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 57, 166, 0.2), rgba(217, 4, 43, 0.2), transparent);
+    animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer {
+    100% { left: 100%; }
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    filter: 
+        brightness(0) invert(1) 
+        drop-shadow(0 0 15px #0039a6) 
+        drop-shadow(0 0 30px #d9042b);
+    transition: all 0.4s ease;
+    image-rendering: crisp-edges;
+    -webkit-font-smoothing: antialiased;
+}
+
+.logo-large {
+    height: 100px;
+}
+
+.logo:hover {
+    transform: scale(1.05) rotate(2deg);
+    filter: 
+        brightness(0) invert(1) 
+        drop-shadow(0 0 25px #0039a6) 
+        drop-shadow(0 0 50px #d9042b);
 }
 
 /* العنوان الرئيسي */
@@ -213,15 +261,6 @@ body::after {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease forwards;
-}
-
-.club-name {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 10px;
-    font-family: 'Beiruti', sans-serif;
-    font-weight: 600;
-    text-shadow: 0 0 20px #0039a6;
 }
 
 .main-title {
@@ -548,14 +587,14 @@ body::after {
     transform: translateY(-2px);
 }
 
-/* الفوتر */
+/* الفوتر (بدون شعار) */
 .glass-footer {
     background: rgba(3, 6, 20, 0.3);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 57, 166, 0.3);
     border-radius: 30px;
-    padding: 40px;
+    padding: 30px;
     margin-top: 80px;
     text-align: center;
 }
@@ -564,46 +603,8 @@ body::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     text-align: center;
-}
-
-/* تذييل الصفحة - شعار كبير */
-.footer-logo {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.footer-logo-img {
-    width: 200px;
-    height: auto;
-    filter: 
-        brightness(0) invert(1) 
-        drop-shadow(0 0 20px #0039a6) 
-        drop-shadow(0 0 40px #d9042b);
-    transition: all 0.3s ease;
-}
-
-.footer-logo-img:hover {
-    transform: scale(1.05);
-}
-
-.footer-title {
-    font-size: 2rem;
-    color: #fff;
-    font-family: 'Beiruti', sans-serif;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 0 0 20px #0039a6;
-}
-
-.footer-description {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
-    margin: 0 auto 10px;
-    font-family: 'Beiruti', sans-serif;
-    line-height: 1.6;
 }
 
 .copyright {
@@ -744,10 +745,6 @@ body::after {
         font-size: 2.5rem;
     }
 
-    .club-name {
-        font-size: 1.5rem;
-    }
-
     .subtitle {
         font-size: 1rem;
     }
@@ -757,19 +754,15 @@ body::after {
     }
 
     .glass-header {
-        padding: 5px;
+        padding: 10px 20px;
+    }
+
+    .logo-large {
+        height: 70px;
     }
     
     .loader-image {
         width: 150px;
-    }
-    
-    .footer-logo-img {
-        width: 150px;
-    }
-    
-    .footer-title {
-        font-size: 1.5rem;
     }
 }
 
@@ -793,10 +786,6 @@ body::after {
     
     .popup-content {
         padding: 30px 20px;
-    }
-    
-    .footer-logo-img {
-        width: 120px;
     }
 }
 
