@@ -149,7 +149,7 @@ body::after {
     75% { transform: translate(-50px, 50px) scale(1.05); }
 }
 
-/* شاشة التحميل - شعار بدون ظل */
+/* شاشة التحميل - شعار ساده بدون ظل */
 .loader-wrapper {
     position: fixed;
     top: 0;
@@ -172,7 +172,7 @@ body::after {
 .loader-image {
     width: 200px;
     height: auto;
-    /* بدون أي ظل أو فلتر */
+    filter: brightness(0) invert(1);
 }
 
 /* المحتوى الرئيسي */
@@ -225,7 +225,6 @@ body::after {
     height: 60px;
     width: auto;
     filter: brightness(0) invert(1);
-    /* بدون ظل وبدون حركة */
 }
 
 .logo-large {
@@ -622,7 +621,7 @@ body::after {
     transform: translateY(-2px);
 }
 
-/* الفوتر */
+/* الفوتر - شعار ثابت بدون توهج */
 .glass-footer {
     background: rgba(3, 6, 20, 0.3);
     backdrop-filter: blur(20px);
@@ -640,6 +639,12 @@ body::after {
     align-items: center;
     gap: 15px;
     text-align: center;
+}
+
+.footer-logo-img {
+    width: 180px;
+    height: auto;
+    filter: brightness(0) invert(1);
 }
 
 .copyright {
@@ -800,6 +805,10 @@ body::after {
         width: 150px;
     }
 
+    .footer-logo-img {
+        width: 140px;
+    }
+
     .top-rank {
         font-size: 1.5rem;
         min-width: 40px;
@@ -835,6 +844,10 @@ body::after {
     
     .popup-content {
         padding: 30px 20px;
+    }
+
+    .footer-logo-img {
+        width: 120px;
     }
 
     .top-item {
