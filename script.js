@@ -75,15 +75,14 @@ const memberDetails = {
 };
 
 // دالة استخراج النقاط من النص
+
 function extractPoints(name) {
     const details = memberDetails[name];
     if (!details) return 0;
-    
-    // البحث عن الرقم قبل "نقطة"
-    const match = details.match(/(\d+)\s*نقطة/);
-    return match ? parseInt(match[1]) : 0;
-}
 
+    const match = details.match(/(\d+(\.\d+)?)\s*نقطة/);
+    return match ? parseFloat(match[1]) : 0;
+}
 // دالة ترتيب أفضل 3 أعضاء تلقائياً
 function updateTopThree() {
     // إنشاء مصفوفة من الأسماء والنقاط
@@ -199,4 +198,5 @@ window.addEventListener('load', function() {
     // ترتيب أفضل 3 أعضاء تلقائياً
     updateTopThree();
 });
+
 
