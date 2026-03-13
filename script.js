@@ -21,7 +21,7 @@ const memberDetails = {
     •	كتيب النشرة ملف (6)
     •	تعديلات Enigma (4 تعديلات × 0.5 = 2)
     •	تعديل إعلان INE (0.5)
-    •	اقتراح تحسين بوستات القبول (0.5)`,
+    •	اقتراح تحسين بوستات التسجيل (0.5)`,
     
     'معاذ': `معاذ: 8 نقاط
     •	الأعمال:
@@ -74,15 +74,30 @@ const memberDetails = {
     •	لا توجد أعمال حالياً`
 };
 
-// فتح النافذة المنبثقة
-function openPopup(name) {
+// فتح النافذة المنبثقة - نسخة مضبوطة
+function openPopup(fullName) {
     const popup = document.getElementById('popup');
     const title = document.getElementById('popup-title');
     const body = document.getElementById('popup-body');
     
-    title.textContent = name;
-    body.textContent = memberDetails[name] || 'لا توجد تفاصيل متاحة';
+    // نحدد عنوان النافذة بالاسم الكامل
+    title.textContent = fullName;
     
+    // نستخرج الاسم الأول فقط (مثلاً: "فرح" من "فرح الشمري")
+    const firstName = fullName.split(' ')[0];
+    
+    // نبحث في memberDetails باستخدام الاسم الأول
+    let details = memberDetails[firstName];
+    
+    // إذا مالقينا تفاصيل، نعرض رسالة خطأ
+    if (!details) {
+        details = 'لا توجد تفاصيل متاحة لهذا العضو حالياً.';
+    }
+    
+    // نضع التفاصيل في محتوى النافذة
+    body.textContent = details;
+    
+    // نعرض النافذة
     popup.classList.add('show');
 }
 
